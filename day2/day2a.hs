@@ -1,5 +1,4 @@
 import System.IO
-import Data.List
 import Text.Regex.TDFA
 
 main = do

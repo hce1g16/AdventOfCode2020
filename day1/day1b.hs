@@ -1,5 +1,4 @@
 import System.IO
-import Data.List
 
 main = do
      g <- readFile "day1/input"
