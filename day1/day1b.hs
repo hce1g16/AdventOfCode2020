@@ -2,7 +2,7 @@ import System.IO
 import Data.List
 
 main = do
-     g <- readFile "Day1/input"
+     g <- readFile "day1/input"
      let l = lines(g)
      let m = map (read::String->Int) l
      let answer = checkExpense' m 2020 
