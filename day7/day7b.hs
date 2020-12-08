@@ -38,6 +38,3 @@ split [] _ = []
 split str regex = before : split upcoming regex
   where
     (before, _, upcoming) = str =~ regex :: (String, String, String)
-
-frequency :: Eq a => a -> [a] -> Int
-frequency n xs = length ([a | a <- xs, a == n])
