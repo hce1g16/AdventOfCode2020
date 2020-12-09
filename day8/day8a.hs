@@ -3,17 +3,18 @@ import Text.Regex.TDFA ((=~))
 main :: IO ()
 main = do
   input <- readFile "day8/input"
-  print $ run (split input "\n") [] 0 0
+  let program = map parseInstruction (split input "\n")
+  print $ run program [] 0 0
 
 -- Run the program and return the acc value at the point where the program loops
-run :: [String] -> [Int] -> Int -> Int -> Int
+run :: [(String, Int)] -> [Int] -> Int -> Int -> Int
 run prog seen p acc
   | p `elem` seen = acc
   | op == "nop" = run prog (p : seen) (p + 1) acc
   | op == "acc" = run prog (p : seen) (p + 1) (acc + int)
   | op == "jmp" = run prog (p : seen) (p + int) acc
   where
-    (op, int) = parseInstruction (prog !! p)
+    (op, int) = prog !! p
 
 -- Parses a instruction row into Operator and Integer
 parseInstruction :: String -> (String, Int)
