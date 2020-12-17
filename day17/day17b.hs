@@ -1,4 +1,3 @@
-import Data.Function (on)
 import Data.List (intersect, nub, (\\))
 import Text.Regex.TDFA ((=~))
 
